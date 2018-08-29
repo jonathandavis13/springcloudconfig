@@ -1,10 +1,15 @@
 server:
   port: 8888
+logging:
+  level:
+    ROOT: INFO
+
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: file:///Users/jonathandavis/IdeaProjects/configurationserver/src/main/resources/config/licensingservice
+        git:
+          uri: https://github.com/carnellj/config-repo.git
+          searchPaths: licensingservice, organizationservice
+          username: native-cloud-apps
+          password: Offended
